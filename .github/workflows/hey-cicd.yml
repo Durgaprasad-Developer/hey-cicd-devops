@@ -1,9 +1,10 @@
 name: Hello GitHub Actions
-
 on:
   push:
-  workflow_dispatch:
-
+    branches:
+      - main
+      - feature/*
+      
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -14,21 +15,27 @@ jobs:
         run: date
       - name: Show operating system
         run: uname -a
-
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Run build
-        run: echo "Building the project..."
+      - name: Print message
+        run: echo "Hello from GitHub Actions!"
+      - name: Show date
+        run: date
+      - name: Show operating system
+        run: uname -a
 
   secrets-demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Use Secret
+      - name: Check secret
         env:
-          MY_SECRET: ${{ secrets.MY_SECRET }}
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
         run: |
-          echo "Accessing GitHub Secret securely..."
-          echo "Secret value is: $MY_SECRET"
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available."
+          else
+            echo "Secret is not configured."
+            exit 1
+          fi
+
