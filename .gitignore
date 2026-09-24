@@ -16,6 +16,9 @@ service-account*.json
 credentials.json
 token.json
 
+# Build outputs
+build/
+
 # Operating system / IDE files
 .DS_Store
 Thumbs.db

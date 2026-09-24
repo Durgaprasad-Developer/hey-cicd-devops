@@ -16,6 +16,7 @@ The workflow file is located at [`.github/workflows/hey-cicd.yml`](.github/workf
 3. **`secrets-demo`**: Validates that `DEMO_SECRET` is securely configured.
    - If `DEMO_SECRET` is found: outputs `"Secret is available."`
    - If `DEMO_SECRET` is missing: outputs `"Secret is not configured."` and exits with error code `1`.
+4. **`artifact`**: Runs [`build.sh`](build.sh) to generate build files into `build/` and uploads them as a downloadable artifact named `session16-build` using `actions/upload-artifact@v4`.
 
 ---
 

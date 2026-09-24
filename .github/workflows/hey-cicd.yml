@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - name: Run build
         run: |
           chmod +x build.sh
@@ -56,5 +56,3 @@ jobs:
         with:
           name: session16-build
           path: build/
-
-
