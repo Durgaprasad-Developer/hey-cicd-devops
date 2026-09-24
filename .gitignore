@@ -1,0 +1,23 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Secret files, keys, and certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*secret*.json
+service-account*.json
+credentials.json
+token.json
+
+# Operating system / IDE files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,6 +1,9 @@
 name: Hello GitHub Actions
+
 on:
+  push:
   workflow_dispatch:
+
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -11,3 +14,21 @@ jobs:
         run: date
       - name: Show operating system
         run: uname -a
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run build
+        run: echo "Building the project..."
+
+  secrets-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Secret
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+        run: |
+          echo "Accessing GitHub Secret securely..."
+          echo "Secret value is: $MY_SECRET"
